@@ -1,0 +1,333 @@
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+	<title>Revision 'O' Matic&trade;</title>
+	<style>
+		body {
+		}
+		h1 {
+			text-align: center;
+			margin-top: 3vh;
+			margin-bottom: 3vh;
+			color: white;
+			font-family: 'Righteous', cursive;
+			font-size: 5vw;
+		}
+		h2 {
+			text-align: center;
+			margin-top: 6vh;
+			margin-bottom: 3vh;
+			color: white;
+			font-family: 'Righteous', cursive;
+			font-size: 6vw;
+		}
+		h3 {
+			display: none;
+			font-size: 5vw;
+		}
+		input {
+			color: #232323;
+			font-family: 'Righteous', cursive;
+			font-size: 2vh;
+			width: 45vw;
+			height: 3vh;
+			margin-bottom: 1.5vh;
+			border: none;
+			border-radius: 5px;
+		}
+		.startButton {
+			color: #232323;
+			font-family: 'Righteous', cursive;
+			font-size: 5vh;
+			width: 35vw;
+			height: 6vh;
+			background-color: white;
+			margin-top: 2vh;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Revision 'O' matic&trade;</h1>
+
+	<center>
+	<div id="holder">
+		<input id="q1" placeholder=" Question 1">
+		<input id="a1" placeholder=" Answer 1"><br>
+		<input id="q2" placeholder=" Question 2">
+		<input id="a2" placeholder=" Answer 2"><br>
+		<input id="q3" placeholder=" Question 3">
+		<input id="a3" placeholder=" Answer 3"><br>
+		<input id="q4" placeholder=" Question 4">
+		<input id="a4" placeholder=" Answer 4"><br>
+		<input id="q5" placeholder=" Question 5">
+		<input id="a5" placeholder=" Answer 5"><br>
+		<input id="q6" placeholder=" Question 6">
+		<input id="a6" placeholder=" Answer 6"><br>
+		<input id="q7" placeholder=" Question 7">
+		<input id="a7" placeholder=" Answer 7"><br>
+		<input id="q8" placeholder=" Question 8">
+		<input id="a8" placeholder=" Answer 8"><br>
+		<input id="q9" placeholder=" Question 9">
+		<input id="a9" placeholder=" Answer 9"><br>
+		<input id="q10" placeholder=" Question 10">
+		<input id="a10" placeholder=" Answer 10"><br>
+		<input id="q11" placeholder=" Question 11">
+		<input id="a11" placeholder=" Answer 11"><br>
+		<input id="q12" placeholder=" Question 12">
+		<input id="a12" placeholder=" Answer 12"><br>
+		<input id="q13" placeholder=" Question 13">
+		<input id="a13" placeholder=" Answer 13"><br>
+		<input id="q14" placeholder=" Question 14">
+		<input id="a14" placeholder=" Answer 14"><br>
+		<input id="q15" placeholder=" Question 15">
+		<input id="a15" placeholder=" Answer 15"><br>
+		<input id="q16" placeholder=" Question 16">
+		<input id="a16" placeholder=" Answer 16"><br>
+	</div>
+	<div id="otherHolder">
+		<h2 id="quesplace">Empty...</h2><br>
+	</div>
+	<div class="startButton" id="revealHide" onclick="clickedStartReveal()"><p id="startTextReveal" style="user-select: none; margin-top: -0.7vh;">REVEAL</p></div>
+	<div class="startButton" onclick="clickedStart()"><p id="startText" style="user-select: none; margin-top: -0.7vh;">TEST</p></div>
+	<div class="startButton" onclick="clickedStartSave()" style="margin-top: 15vh;" id="saveHide"><p id="startTextSave" style="user-select: none; margin-top: -0.7vh;">SAVE</p></div>
+	</center>
+
+	<script>
+		var questionsS = [];
+		var colours = ["#ff4949", "#ff7f00", "#00a9ff", "#aa00ff", "#ff00c7", "#00a54a"];
+
+		var rand = colours[Math.floor(Math.random() * colours.length)];
+		document.body.style.background = rand;
+		document.getElementById("startText").style.color = rand;
+		document.getElementById("startTextReveal").style.color = rand;
+		document.getElementById("startTextSave").style.color = rand;
+		document.getElementById("otherHolder").style.display = "none";
+		document.getElementById("revealHide").style.display = "none";
+		document.getElementById("saveHide").style.display = "none";
+
+
+		var questions = [];
+
+		function clickedStart() {
+			questions = [];
+			document.getElementById("holder").style.display = "none";
+			document.getElementById("revealHide").style.display = "block";
+			document.getElementById("saveHide").style.display = "block";
+			document.getElementById("otherHolder").style.display = "block";
+
+			questions.push(document.getElementById("q1").value+ "<h3 id='para'>"+ document.getElementById("a1").value+ "</h3>");
+			questions.push(document.getElementById("q2").value+ "<h3 id='para'>"+ document.getElementById("a2").value+ "</h3>");
+			questions.push(document.getElementById("q3").value+ "<h3 id='para'>"+ document.getElementById("a3").value+ "</h3>");
+			questions.push(document.getElementById("q4").value+ "<h3 id='para'>"+ document.getElementById("a4").value+ "</h3>");
+			questions.push(document.getElementById("q5").value+ "<h3 id='para'>"+ document.getElementById("a5").value+ "</h3>");
+			questions.push(document.getElementById("q6").value+ "<h3 id='para'>"+ document.getElementById("a6").value+ "</h3>");
+			questions.push(document.getElementById("q7").value+ "<h3 id='para'>"+ document.getElementById("a7").value+ "</h3>");
+			questions.push(document.getElementById("q8").value+ "<h3 id='para'>"+ document.getElementById("a8").value+ "</h3>");
+			questions.push(document.getElementById("q9").value+ "<h3 id='para'>"+ document.getElementById("a9").value+ "</h3>");
+			questions.push(document.getElementById("q10").value+ "<h3 id='para'>"+ document.getElementById("a10").value+ "</h3>");
+			questions.push(document.getElementById("q11").value+ "<h3 id='para'>"+ document.getElementById("a11").value+ "</h3>");
+			questions.push(document.getElementById("q12").value+ "<h3 id='para'>"+ document.getElementById("a12").value+ "</h3>");
+			questions.push(document.getElementById("q13").value+ "<h3 id='para'>"+ document.getElementById("a13").value+ "</h3>");
+			questions.push(document.getElementById("q14").value+ "<h3 id='para'>"+ document.getElementById("a14").value+ "</h3>");
+			questions.push(document.getElementById("q15").value+ "<h3 id='para'>"+ document.getElementById("a15").value+ "</h3>");
+			questions.push(document.getElementById("q16").value+ "<h3 id='para'>"+ document.getElementById("a16").value+ "</h3>");
+
+
+			var randyQues = questions[Math.floor(Math.random() * questions.length)];
+			if (randyQues == "<h3 id='para'></h3>") {
+				clickedStart();
+			} else {
+				document.getElementById("quesplace").innerHTML = randyQues;
+			}
+		}
+
+		function clickedStartReveal() {
+			document.getElementById("revealHide").style.display = "none";
+			document.getElementById("para").style.display = "block";
+		}
+
+		function clickedStartSave() {
+			var name = prompt("Name of Revision List?")
+
+			questionsS = [];
+
+			var thingq1 =  document.getElementById("q1").value;
+			var thinga1 = document.getElementById("a1").value;
+			var thingq2 =  document.getElementById("q2").value;
+			var thinga2 = document.getElementById("a2").value;
+			var thingq3 =  document.getElementById("q3").value;
+			var thinga3 = document.getElementById("a3").value;
+			var thingq4 =  document.getElementById("q4").value;
+			var thinga4 = document.getElementById("a4").value;
+			var thingq5 =  document.getElementById("q5").value;
+			var thinga5 = document.getElementById("a5").value;
+			var thingq6 =  document.getElementById("q6").value;
+			var thinga6 = document.getElementById("a6").value;
+			var thingq7 =  document.getElementById("q7").value;
+			var thinga7 = document.getElementById("a7").value;
+			var thingq8 =  document.getElementById("q8").value;
+			var thinga8 = document.getElementById("a8").value;
+			var thingq9 =  document.getElementById("q9").value;
+			var thinga9 = document.getElementById("a9").value;
+			var thingq10 =  document.getElementById("q10").value;
+			var thinga10 = document.getElementById("a10").value;
+			var thingq11 =  document.getElementById("q11").value;
+			var thinga11 = document.getElementById("a11").value;
+			var thingq12 =  document.getElementById("q12").value;
+			var thinga12 = document.getElementById("a12").value;
+			var thingq13 =  document.getElementById("q13").value;
+			var thinga13 = document.getElementById("a13").value;
+			var thingq14 =  document.getElementById("q14").value;
+			var thinga14 = document.getElementById("a14").value;
+			var thingq15 =  document.getElementById("q15").value;
+			var thinga15 = document.getElementById("a15").value;
+			var thingq16 =  document.getElementById("q16").value;
+			var thinga16 = document.getElementById("a16").value;
+
+
+			questionsS.push(thingq1 + "<h3 id='para'>" + thinga1 + "</h3>");
+			questionsS.push(thingq2 + "<h3 id='para'>" + thinga2 + "</h3>");
+			questionsS.push(thingq3 + "<h3 id='para'>" + thinga3 + "</h3>");
+			questionsS.push(thingq4 + "<h3 id='para'>" + thinga4 + "</h3>");
+			questionsS.push(thingq5 + "<h3 id='para'>" + thinga5 + "</h3>");
+			questionsS.push(thingq6 + "<h3 id='para'>" + thinga6 + "</h3>");
+			questionsS.push(thingq7 + "<h3 id='para'>" + thinga7 + "</h3>");
+			questionsS.push(thingq8 + "<h3 id='para'>" + thinga8 + "</h3>");
+			questionsS.push(thingq9 + "<h3 id='para'>" + thinga9 + "</h3>");
+			questionsS.push(thingq10 + "<h3 id='para'>" + thinga10 + "</h3>");
+			questionsS.push(thingq11 + "<h3 id='para'>" + thinga11 + "</h3>");
+			questionsS.push(thingq12 + "<h3 id='para'>" + thinga12 + "</h3>");
+			questionsS.push(thingq13 + "<h3 id='para'>" + thinga13 + "</h3>");
+			questionsS.push(thingq14 + "<h3 id='para'>" + thinga14 + "</h3>");
+			questionsS.push(thingq15 + "<h3 id='para'>" + thinga15 + "</h3>");
+			questionsS.push(thingq16 + "<h3 id='para'>" + thinga16 + "</h3>");
+
+			//SaveFileFunction
+			//
+			//
+			localStorage.setItem("fullcode", `
+
+
+								<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+	<title>Revision 'O' Matic&trade;</title>
+	<style>
+		body {
+		}
+		h1 {
+			text-align: center;
+			margin-top: 3vh;
+			margin-bottom: 3vh;
+			color: white;
+			font-family: 'Righteous', cursive;
+			font-size: 5vw;
+		}
+		h2 {
+			text-align: center;
+			margin-top: 6vh;
+			margin-bottom: 3vh;
+			color: white;
+			font-family: 'Righteous', cursive;
+			font-size: 6vw;
+		}
+		h3 {
+			display: none;
+			font-size: 5vw;
+		}
+		input {
+			color: #232323;
+			font-family: 'Righteous', cursive;
+			font-size: 2vh;
+			width: 45vw;
+			height: 3vh;
+			margin-bottom: 1.5vh;
+			border: none;
+			border-radius: 5px;
+		}
+		.startButton {
+			color: #232323;
+			font-family: 'Righteous', cursive;
+			font-size: 5vh;
+			width: 35vw;
+			height: 6vh;
+			background-color: white;
+			margin-top: 2vh;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Revision 'O' matic&trade;</h1>
+
+	<center>
+	<div id="otherHolder">
+		<h2 id="quesplace">Press Test</h2><br>
+	</div>
+	<div class="startButton" id="revealHide" onclick="clickedStartReveal()"><p id="startTextReveal" style="user-select: none; margin-top: -0.7vh;">REVEAL</p></div>
+	<div class="startButton" onclick="clickedStart()"><p id="startText" style="user-select: none; margin-top: -0.7vh;">TEST</p></div>
+	</center>
+
+	<script>
+	var colours = ["#ff4949", "#ff7f00", "#00a9ff", "#aa00ff", "#ff00c7", "#00a54a"];
+
+		var rand = colours[Math.floor(Math.random() * colours.length)];
+		document.body.style.background = rand;
+		document.getElementById("startText").style.color = rand;
+		document.getElementById("startTextReveal").style.color = rand;
+		document.getElementById("revealHide").style.display = "none";
+
+	var questions = ["` +  thingq1 + "<h3 id='para'>" + thinga1 + "</h3>" + `", "` +  thingq2 + "<h3 id='para'>" + thinga2 + "</h3>" + `", "` +  thingq3 + "<h3 id='para'>" + thinga3 + "</h3>" + `", "` +  thingq4 + "<h3 id='para'>" + thinga4 + "</h3>" + `", "` +  thingq5 + "<h3 id='para'>" + thinga5 + "</h3>" + `", "` +  thingq6 + "<h3 id='para'>" + thinga6 + "</h3>" + `", "` +  thingq7 + "<h3 id='para'>" + thinga7 + "</h3>" + `", "` +  thingq8 + "<h3 id='para'>" + thinga8 + "</h3>" + `", "` +  thingq9 + "<h3 id='para'>" + thinga9 + "</h3>" + `", "` +  thingq10 + "<h3 id='para'>" + thinga10 + "</h3>" + `", "` +  thingq11 + "<h3 id='para'>" + thinga11 + "</h3>" + `", "` +  thingq12 + "<h3 id='para'>" + thinga12 + "</h3>" + `", "` +  thingq13 + "<h3 id='para'>" + thinga13 + "</h3>" + `", "` +  thingq14 + "<h3 id='para'>" + thinga14 + "</h3>" + `", "` +  thingq15 + "<h3 id='para'>" + thinga15 + "</h3>" + `", "` +  thingq16 + "<h3 id='para'>" + thinga16 + "</h3>" + `"];
+
+	function clickedStart() {
+
+		document.getElementById("revealHide").style.display = "block";
+		var randyQues = questions[Math.floor(Math.random() * questions.length)];
+			if (randyQues == "<h3 id='para'></h3>") {
+				clickedStart();
+			} else {
+				document.getElementById("quesplace").innerHTML = randyQues;
+			}
+
+	}
+
+	function clickedStartReveal() {
+			document.getElementById("revealHide").style.display = "none";
+			document.getElementById("para").style.display = "block";
+		}
+
+
+
+<` + "/script>" + `
+
+	</body>
+	</html>
+
+
+				`);
+			//End of SaveFileFunction
+			//
+			//
+
+			download(name + '.html', localStorage.getItem("fullcode"));
+		}
+
+		function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+
+
+	</script>
+</body>
+</html>
